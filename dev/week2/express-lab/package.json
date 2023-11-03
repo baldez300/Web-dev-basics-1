@@ -1,0 +1,19 @@
+{
+  "name": "express-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "appExp2.js",
+  "scripts": {
+    "start": "node appExp2.js",
+    "dev": "nodemon appExp2.js"
+  },
+  "keywords": [],
+  "author": "Balde",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
