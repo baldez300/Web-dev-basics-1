@@ -1,0 +1,79 @@
+﻿/* Layout Styles */
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li {
+  display: inline;
+  margin-right: 1rem;
+  margin-left: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+/* Hamburger Menu Styles for Mobile Screens */
+@media screen and (max-width: 768px) {
+  ul {
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    display: none;
+    transition: display 0.3s ease-in-out;
+  }
+
+  ul.menu-open {
+    display: flex;
+  }
+
+  li {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  #menu-icon {
+    display: block;
+    cursor: pointer;
+    color: lightslategray;
+    font-size: 24px;
+  }
+
+  main {
+    padding-top: 80px;
+  }
+}
+
+/* Hide the menu on larger screens */
+@media screen and (min-width: 769px) {
+  #menu-icon {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
