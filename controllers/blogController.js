@@ -1,3 +1,4 @@
+
 const Blog = require("../models/blogModel");
 
 // Create a new blog
