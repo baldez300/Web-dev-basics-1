@@ -1,0 +1,3 @@
+﻿
+synchronous (sync) file read and write.
+Handle errors, if any, and log the content to the console
