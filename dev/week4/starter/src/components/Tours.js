@@ -1,10 +1,26 @@
-import { tours } from "../data";
+
 import Title from "./Title";
 import Tour from "./Tour";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const apiUrl = 'http://localhost:5001/api/tours';
 
 const Tours = () => {
-  const [toursData, setToursData] = useState(tours);
+  const [toursData, setToursData] = useState(null);
+
+  const getTours = async () => {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      setToursData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getTours();
+  }, []); // Add an empty dependency array to run only once on mount
 
   const handleDeleteTour = (tourId) => {
     // Filter out the tour with the specified ID and update the state
@@ -18,8 +34,8 @@ const Tours = () => {
       <Title title="our" subTitle="tours" />
 
       <div className="section-center tours-center">
-        {toursData.map((tour) => {
-          return <Tour key={tour.id} 
+        {toursData && toursData.map((tour) => {
+          return <Tour {...tour} key={tour._id} 
           tour={tour} 
           onDelete={handleDeleteTour} />
         })}

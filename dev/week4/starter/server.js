@@ -1,7 +1,9 @@
+// import cors from "cors";
 
 // const connectDB = require("./config/db");
 const connectDB = require("./config/db");
 const express = require("express");
+const cors = require("cors");
 
 // express app
 const app = express();
@@ -13,6 +15,7 @@ const usersController = require("./controllers/UsersController");
 const toursController = require("./controllers/ToursController");
 
 // middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
