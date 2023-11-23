@@ -10,6 +10,7 @@ import NotFound from './components/NotFound';
 import Layout from "./components/Layout";
 import Registration from "./components/Registration";
 import AddOrDeleteTour from "./components/AddOrDeleteTour";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/tours" element={<Tours />} />
             <Route path="/registration" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} /> {/* Added this line for 404 */}
           </Route>
         </Routes>

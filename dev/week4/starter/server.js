@@ -13,6 +13,7 @@ connectDB();
 const servicesController = require("./controllers/ServicesController");
 const usersController = require("./controllers/UsersController");
 const toursController = require("./controllers/ToursController");
+const loginController = require("./controllers/LoginController");
 
 // middleware
 app.use(cors());
@@ -44,6 +45,9 @@ app.patch("/api/tours/:id", toursController.patchBlog);
 app.put("/api/tours/:id", toursController.putBlog);
 app.post("/api/tours", toursController.createBlog);
 app.get("/api/tours", toursController.getBlogs);
+
+// Login Routes
+app.post("/api/login", loginController.login);
 
 const PORT = process.env.PORT || 3001; // Access the port from .env or use 3001 if not found
 app.listen(PORT, () => {

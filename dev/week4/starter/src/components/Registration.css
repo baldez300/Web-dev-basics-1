@@ -1,15 +1,12 @@
 ﻿
-.header-form {
-  margin-bottom: 30px;
-  text-align: center;
-  margin-top: 50px;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px; 
-    margin: auto;
+.registration-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
   
 /* Style for labels */

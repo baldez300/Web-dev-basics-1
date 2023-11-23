@@ -5,14 +5,14 @@ const Blog = require("../models/UsersModel");
 // Create a new blog
 const createBlog = async (req, res) => {
   try {
-    const { username, email, role } = req.body;
-    if (!username || !email || !role) {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
       return res
         .status(400)
-        .json({ error: "All fields (username, email, role) are required" });
+        .json({ error: "All fields (name, email, password) are required" });
     }
 
-    const newBlog = new Blog({ username, email, role });
+    const newBlog = new Blog({ name, email, password});
     const savedBlog = await newBlog.save();
 
     res.status(201).json(savedBlog);
