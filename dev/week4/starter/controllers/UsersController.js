@@ -2,6 +2,7 @@
 
 const Blog = require("../models/UsersModel");
 const bcrypt = require('bcrypt');
+const validator = require('validator')
 
 // Create a new blog
 const createBlog = async (req, res) => {
@@ -12,6 +13,23 @@ const createBlog = async (req, res) => {
         .status(400)
         .json({ error: "All fields (name, email, password) are required" });
     }
+
+    // // Validate email
+    // if (!validator.isEmail(email)) {
+    //   return res.status(400).json({ error: "Invalid email" });
+    // }
+
+    // // Validate password
+    // if (!validator.isStrongPassword(password)) {
+    //   return res.status(400).json({ error: "Password not strong enough" });
+    // }
+
+    // // Check if the user already exists
+    // const exists = await this.findOne({ email })
+
+    // if (exists) {
+    //   throw Error('Email already in use')
+    // }
 
     // Generate a salt with 10 rounds (you can adjust this number)
     const salt = await bcrypt.genSalt(10);
