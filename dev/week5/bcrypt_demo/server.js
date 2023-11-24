@@ -21,9 +21,10 @@ app.post('/register', async (req, res) => {
     
     // Hash the password using bcrypt
     const hashedPassword = await bcrypt.hash(password, salt);
-    console.log('Password:', password);
-    console.log('Salt:', salt);
-    console.log('Hashed Password:', hashedPassword);
+
+    // console.log('Password:', password);
+    // console.log('Salt:', salt);
+    // console.log('Hashed Password:', hashedPassword);
 
     // Save the user data with the hashed password
     users.push({ username, password: hashedPassword });

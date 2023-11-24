@@ -1,5 +1,6 @@
 ﻿// LoginController.js
 const User = require("../models/UsersModel");
+const bcrypt = require('bcrypt');
 
 const login = async (req, res) => {
   try {
@@ -12,15 +13,15 @@ const login = async (req, res) => {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    // Check if the provided password (converted to Number) matches the stored password
-    const isPasswordValid = user.password === Number(password);
+    // Check if the provided password matches the stored password hash
+    const isMatch = await bcrypt.compare(password, user.password);
 
-    if (!isPasswordValid) {
+    if (!isMatch) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
     // Login successful
-    res.status(200).json({ message: "Login successful" });
+    res.status(200).json({ message: "User logged in successfully" });
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).json({ error: "Internal Server Error" });

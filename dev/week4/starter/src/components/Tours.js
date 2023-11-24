@@ -1,7 +1,9 @@
+// Tours.js
 
 import Title from "./Title";
 import Tour from "./Tour";
 import { useState, useEffect } from "react";
+import AddOrDeleteTour from "../components/AddOrDeleteTour";
 
 const apiUrl = 'http://localhost:5001/api/tours';
 
@@ -40,6 +42,7 @@ const Tours = () => {
           onDelete={handleDeleteTour} />
         })}
       </div>
+      {<AddOrDeleteTour />}
     </section>
   );
 }

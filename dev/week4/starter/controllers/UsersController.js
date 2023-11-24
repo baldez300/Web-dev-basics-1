@@ -1,6 +1,7 @@
 // const User = require("../models/UsersModel");
 
 const Blog = require("../models/UsersModel");
+const bcrypt = require('bcrypt');
 
 // Create a new blog
 const createBlog = async (req, res) => {
@@ -12,7 +13,14 @@ const createBlog = async (req, res) => {
         .json({ error: "All fields (name, email, password) are required" });
     }
 
-    const newBlog = new Blog({ name, email, password});
+    // Generate a salt with 10 rounds (you can adjust this number)
+    const salt = await bcrypt.genSalt(10);
+    
+    // Hash the password using bcrypt
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Save the user data with the hashed password
+    const newBlog = new Blog({ name, email, password: hashedPassword});
     const savedBlog = await newBlog.save();
 
     res.status(201).json(savedBlog);

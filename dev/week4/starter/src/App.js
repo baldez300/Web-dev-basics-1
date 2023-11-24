@@ -9,7 +9,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import Layout from "./components/Layout";
 import Registration from "./components/Registration";
-import AddOrDeleteTour from "./components/AddOrDeleteTour";
 import Login from "./components/Login";
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
             <Route path="*" element={<NotFound />} /> {/* Added this line for 404 */}
           </Route>
         </Routes>
-        <AddOrDeleteTour />
         <Footer />
       </BrowserRouter>
     </div>
